@@ -1,0 +1,120 @@
+LED
+#include<p18f4520.h>
+
+#pragma config OSC=HS
+
+#pragma config PWRT=OFF
+
+#pragma config WDT=OFF
+
+#pragma config DEBUG-OFF, LVP=OFF
+
+void msdelay(unsigned int itime);
+
+Right(void);
+
+void Left(void);
+
+#define SW2 PORTBbits.RBO
+
+#define SW1 PORTBbits.RB1
+
+#define relay PORTBbits.RB3
+
+#define D1 PORTBbits.RB4
+#define D2 PORTBbits.RB5
+
+#define D3 PORTBbits.RB6
+
+#define D4 PORTBbits. RB7
+
+void main()
+
+{
+
+ADCON1=0x0F;
+
+TRISBbits.TRISB0=1;
+
+TRISBbits.TRISB1 = 1 ;
+
+TRISBbits.TRISB3 = 0 ;
+
+TRISBbits.TRISB4 = 0 ;
+
+TRISBbits.TRISB5=0;
+
+TRISBbits.TRISB6 = 0 ;
+
+D * 1 = D * 2 = D * 3 = D * 4 = 0 ;
+
+SW * 1 = SW * 2 = 1
+
+relay=0;
+
+while(1)
+
+{
+
+(SW2== 0 * 8SW * 1 ==1)
+
+relay=1;
+
+Right();
+
+{
+
+}
+
+if (SW1== 0 * 8SW * 2 ==1)
+
+{
+
+relay=0;
+
+Left()
+}
+
+}
+
+Pag
+
+}
+
+void Right(void)
+
+{
+
+D * 1 = D * 2 = D * 3 = D * 4 = 0 ; ' while(SW1!=0) {
+
+D * 1 = 1; D * 2 = 0; D * 3 = 0; D * 4 = 0 ; msdelay(10); D * 1 = 0; D * 2 = 1; D * 3 = 0; D * 4 = 0 msdelay(10); D * 1 = 0; D * 2 = 0; D * 3 = 1; D * 4 = 0 ; msdelay(10); D * 1 = 0; D * 2 = 0; D * 3 = 0; D * 4 = 1 ; msdelay(10);
+
+}
+
+}
+
+void Left(void) {
+
+D * 1 = D * 2 = D * 3 = D * 4 = 0 ; while(SW2 l = 0 ) {
+
+D * 1 = 0 ; D * 2 = 0; D * 3 = 0; D * 4 = 1 ; msdelay(10); D * 1 = 0 ; D * 2 = 0; D * 3 = 1; D * 4 = 0 ; msdelay(10);
+
+D * 1 = 0 ; D * 2 = 1 D3=0;D4=0;
+msdelay(10);
+
+D1=1; D2=0;D3=0;D4=0;
+
+msdelay (10);
+
+}
+
+void msdelay (unsigned int itime)
+
+{
+
+int i, j;
+
+for (i=0;i<itime;i++)
+
+for (j=0;j<1275;j++);
+}
